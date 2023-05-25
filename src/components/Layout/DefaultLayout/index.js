@@ -5,9 +5,9 @@ function DefaultLayout({ children }) {
     return (
         <div>
             <Header />
-            <div className="container" style={{ display: 'flex' }}>
+            <div className="" style={{ display: 'flex' }}>
                 <Sidebar />
-                <div className="content">{children}</div>
+                {children}
             </div>
         </div>
     );

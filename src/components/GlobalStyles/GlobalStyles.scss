@@ -23,7 +23,6 @@ html {
 body {
     font-family: ibm-plex-sans, sans-serif;
     font-size: 1.6rem;
-    line-height: 0.5;
     text-rendering: optimizeSpeed;
 }
 
@@ -31,10 +30,49 @@ button,
 input,
 [tabindex] {
     outline: none;
-    border: none;
+    // border: none;
 }
 
 a[href] {
     color: var(--text-color);
     text-decoration: none;
+}
+
+// Form Modal
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button[type='submit'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button[type='submit']:hover {
+    background-color: #0069d9;
 }
