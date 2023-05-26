@@ -36,6 +36,8 @@ post_route.post('/create-post', upload.single('image'), postController.createPos
 
 post_route.get('/get-posts', postController.getPosts);
 
+post_route.get('/get-post/:id', postController.getPostById);
+
 post_route.get('/delete-post/:id', postController.deletePost);
 
 post_route.post('/update-post', upload.single('image'), postController.updatePost);

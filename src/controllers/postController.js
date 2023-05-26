@@ -25,6 +25,16 @@ const getPosts = async (req, res) => {
     }
 };
 
+const getPostById = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const post = await Post.findById({ _id: id });
+        res.status(200).send({ success: true, msg: 'Post Data', data: post });
+    } catch (error) {
+        res.status(400).send({ success: false, msg: error.message });
+    }
+};
+
 const deletePost = async (req, res) => {
     try {
         const id = req.params.id;
@@ -67,6 +77,7 @@ const updatePost = async (req, res) => {
 module.exports = {
     createPost,
     getPosts,
+    getPostById,
     deletePost,
     updatePost,
 };
