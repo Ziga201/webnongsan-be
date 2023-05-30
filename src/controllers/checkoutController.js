@@ -9,6 +9,7 @@ const createCheckout = async (req, res) => {
             total: req.body.total,
             product: req.body.product,
             orderdate: req.body.orderdate,
+            confirm: req.body.confirm,
         });
         const checkoutData = await checkout.save();
 

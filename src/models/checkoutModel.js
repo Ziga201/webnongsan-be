@@ -25,6 +25,10 @@ const checkoutChema = mongoose.Schema({
         type: String,
         required: true,
     },
+    confirm: {
+        type: String,
+        required: true,
+    },
 });
 
 module.exports = mongoose.model('Checkout', checkoutChema);
