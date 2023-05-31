@@ -7,6 +7,7 @@ const createPost = async (req, res) => {
             price: req.body.price,
             image: req.file.filename,
             desc: req.body.desc,
+            category: req.body.category,
         });
         const postData = await post.save();
 
@@ -54,10 +55,11 @@ const updatePost = async (req, res) => {
             var price = req.body.price;
             var filename = req.file.filename;
             var desc = req.body.desc;
+            var category = req.body.category;
 
             await Post.findByIdAndUpdate(
                 { _id: id },
-                { $set: { name: name, price: price, image: filename, desc: desc } },
+                { $set: { name: name, price: price, image: filename, desc: desc, category: category } },
             );
             res.status(200).send({ success: true, msg: 'Post updated successfully' });
         } else {
@@ -65,8 +67,12 @@ const updatePost = async (req, res) => {
             var name = req.body.name;
             var price = req.body.price;
             var desc = req.body.desc;
+            var category = req.body.category;
 
-            await Post.findByIdAndUpdate({ _id: id }, { $set: { name: name, price: price, desc: desc } });
+            await Post.findByIdAndUpdate(
+                { _id: id },
+                { $set: { name: name, price: price, desc: desc, category: category } },
+            );
             res.status(200).send({ success: true, msg: 'Post updated successfully' });
         }
     } catch (error) {

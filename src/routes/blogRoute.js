@@ -36,6 +36,8 @@ blog_route.post('/create-blog', upload.single('image'), blogController.createBlo
 
 blog_route.get('/get-blogs', blogController.getBlogs);
 
+blog_route.get('/get-blog/:id', blogController.getBlogById);
+
 blog_route.get('/delete-blog/:id', blogController.deleteBlog);
 
 blog_route.post('/update-blog', upload.single('image'), blogController.updateBlog);

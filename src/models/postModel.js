@@ -17,6 +17,10 @@ const postChema = mongoose.Schema({
         type: String,
         required: true,
     },
+    category: {
+        type: String,
+        required: true,
+    },
 });
 
 module.exports = mongoose.model('Post', postChema);

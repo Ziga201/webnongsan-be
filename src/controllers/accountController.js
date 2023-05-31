@@ -6,6 +6,9 @@ const createAccount = async (req, res) => {
             username: req.body.username,
             password: req.body.password,
             email: req.body.email,
+            name: req.body.name,
+            decentralization: req.body.decentralization,
+            image: req.file.filename,
         });
         const accountData = await account.save();
 
@@ -42,10 +45,22 @@ const updateAccount = async (req, res) => {
             var username = req.body.username;
             var password = req.body.password;
             var email = req.body.email;
+            var name = req.body.name;
+            var filename = req.file.filename;
+            var decentralization = req.body.decentralization;
 
             await Account.findByIdAndUpdate(
                 { _id: id },
-                { $set: { username: username, password: password, email: email } },
+                {
+                    $set: {
+                        username: username,
+                        password: password,
+                        email: email,
+                        name: name,
+                        image: filename,
+                        decentralization: decentralization,
+                    },
+                },
             );
             res.status(200).send({ success: true, msg: 'Đổi mật khẩu thành công' });
         } else {
@@ -53,10 +68,21 @@ const updateAccount = async (req, res) => {
             var username = req.body.username;
             var password = req.body.password;
             var email = req.body.email;
+            var name = req.body.name;
+            var decentralization = req.body.decentralization;
 
             await Account.findByIdAndUpdate(
                 { _id: id },
-                { $set: { username: username, password: password, email: email } },
+                {
+                    $set: {
+                        username: username,
+                        password: password,
+                        email: email,
+                        name: name,
+                        image: filename,
+                        decentralization: decentralization,
+                    },
+                },
             );
             res.status(200).send({ success: true, msg: 'Đổi mật khẩu thành công' });
         }

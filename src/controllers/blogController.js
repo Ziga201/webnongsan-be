@@ -26,6 +26,16 @@ const getBlogs = async (req, res) => {
     }
 };
 
+const getBlogById = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const blog = await Blog.findById({ _id: id });
+        res.status(200).send({ success: true, msg: 'Blog Data', data: blog });
+    } catch (error) {
+        res.status(400).send({ success: false, msg: error.message });
+    }
+};
+
 const deleteBlog = async (req, res) => {
     try {
         const id = req.params.id;
@@ -73,6 +83,7 @@ const updateBlog = async (req, res) => {
 module.exports = {
     createBlog,
     getBlogs,
+    getBlogById,
     deleteBlog,
     updateBlog,
 };
