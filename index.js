@@ -26,6 +26,9 @@ app.use('/api', checkout_route);
 const staff_route = require('./src/routes/staffRoute');
 app.use('/api', staff_route);
 
+const message_route = require('./src/routes/messageRoute');
+app.use('/api', message_route);
+
 app.listen(8000, function () {
     console.log('Server is running');
 });

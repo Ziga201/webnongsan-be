@@ -36,6 +36,8 @@ account_route.post('/create-account', upload.single('image'), accountController.
 
 account_route.get('/get-accounts', accountController.getAccounts);
 
+account_route.get('/get-account/:id', accountController.getAccountById);
+
 account_route.get('/delete-account/:id', accountController.deleteAccount);
 
 account_route.post('/update-account', upload.single('image'), accountController.updateAccount);

@@ -27,6 +27,16 @@ const getAccounts = async (req, res) => {
     }
 };
 
+const getAccountById = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const account = await Account.findById({ _id: id });
+        res.status(200).send({ success: true, msg: 'Account Data', data: account });
+    } catch (error) {
+        res.status(400).send({ success: false, msg: error.message });
+    }
+};
+
 const deleteAccount = async (req, res) => {
     try {
         const id = req.params.id;
@@ -94,6 +104,7 @@ const updateAccount = async (req, res) => {
 module.exports = {
     createAccount,
     getAccounts,
+    getAccountById,
     deleteAccount,
     updateAccount,
 };
